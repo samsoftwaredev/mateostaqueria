@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0069c9" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Mateo’s Taqueria responsive website prototype — fresh Mexican flavor, a demo menu and catering estimate." />
+  <title>Mateo’s Taqueria — Front-end Design Preview</title>
+  <link rel="icon" href="images/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-strip">✣ &nbsp; Arlington, we're coming soon. <strong>Catering is available now.</strong> <button data-nav="catering">Explore catering &rarr;</button></div>
+  <header class="header">
+    <div class="container header-inner">
+      <button class="hamburger" aria-label="Open navigation" id="hamburger">☰</button>
+      <button class="logo-button" data-nav="home"><img src="images/mateos-wordmark.png" alt="Mateo’s Taqueria" /></button>
+      <nav class="desktop-nav" id="desktop-nav">
+        <button data-nav="home">Home</button><button data-nav="menu">Menu</button><button data-nav="catering">Catering</button><button data-nav="rewards">Rewards</button><button data-nav="locations">Locations</button><button data-nav="about">About Us</button>
+      </nav>
+      <div class="nav-actions"><button class="button primary desktop-order" data-nav="menu">▢ &nbsp; ORDER PREVIEW</button><button class="bag-button" id="open-bag" aria-label="View demo bag">♙ <span id="bag-count">0</span></button></div>
+    </div>
+  </header>
+  <div id="mobile-menu" class="mobile-menu hidden"><div class="mobile-menu-heading"><img src="images/mateos-wordmark.png" alt="Mateo's"/><button id="close-menu" aria-label="Close navigation">✕</button></div><nav class="mobile-menu-links"><button data-nav="home">Home</button><button data-nav="menu">Menu</button><button data-nav="catering">Catering</button><button data-nav="rewards">Rewards</button><button data-nav="locations">Locations</button><button data-nav="about">About Us</button></nav></div>
+  <main id="app" aria-live="polite"></main>
+  <footer class="footer"><div class="container footer-main"><div><button class="footer-logo logo-button" data-nav="home"><img src="images/mateos-wordmark.png" alt="Mateo’s Taqueria"/></button><p>Homemade Mexican flavor, fresh ingredients and a whole lot of heart.</p></div><div><strong>EXPLORE</strong><button data-nav="menu">Menu</button><button data-nav="catering">Catering</button><button data-nav="rewards">Rewards</button></div><div><strong>LEARN MORE</strong><button data-nav="locations">Locations</button><button data-nav="about">Our Story</button><a href="https://mateostaqueria.com/" target="_blank" rel="noreferrer">Original website</a></div><div><strong>SAY HOLA</strong><p>2425 SE Green Oaks Blvd<br>Suite 103, Arlington, TX 76018</p><a href="tel:2147997852">(214) 799-7852</a></div></div><div class="container footer-legal">© 2026 Mateo's Taqueria · Front-end concept &nbsp; | &nbsp; No orders, bookings or payments are submitted.</div></footer>
+  <nav class="bottom-nav" aria-label="Mobile navigation"><button data-nav="home"><span>⌂</span>Home</button><button data-nav="menu"><span>☷</span>Menu</button><button data-nav="catering"><span>♧</span>Catering</button><button data-nav="rewards"><span>☆</span>Rewards</button><button data-nav="locations"><span>•••</span>More</button></nav>
+  <div id="overlay" class="overlay hidden"></div><aside id="bag-drawer" class="bag-drawer hidden" aria-label="Demo bag"><div class="drawer-head"><div><small>YOUR FAVORITES</small><h2>DEMO BAG</h2></div><button id="close-bag" class="close-button" aria-label="Close demo bag">✕</button></div><p class="subtle">No live orders are sent. This is a preview only.</p><div id="bag-lines"></div><div id="bag-bottom"></div></aside>
+  <div id="product-modal" class="modal hidden" role="dialog" aria-label="Menu item details"><button id="close-modal" class="close-button modal-close">✕</button><div id="modal-content"></div></div>
+  <div id="demo-modal" class="modal hidden" role="dialog" aria-label="Demo ordering information"><div class="demo-modal-body"><h2>This is a preview</h2><p>The demo bag works in your browser. No restaurant order, account, or payment is sent. You can add live ordering when Mateo’s is ready.</p><button class="button primary" id="dismiss-demo">Got it</button></div></div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="data.js"></script><script src="app.js"></script>
+</body>
+</html>

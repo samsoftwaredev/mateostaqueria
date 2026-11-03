@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Mateo's Taqueria",
+    "slug": "mateos-taqueria-demo",
+    "scheme": "mateostaqueria",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "icon": "./assets/icon.png",
+    "web": {"bundler": "metro", "output": "single", "favicon": "./assets/icon.png", "name": "Mateo's Taqueria"},
+    "ios": {"supportsTablet": true},
+    "android": {"adaptiveIcon": {"foregroundImage": "./assets/icon.png", "backgroundColor": "#FCF9F2"}}
+  }
+}
