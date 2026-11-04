@@ -1,3 +1,16 @@
 # Dependencies
 node_modules/
 
+# Expo and generated builds
+.expo/
+dist/
+preview/dist/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Test output
+coverage/
+

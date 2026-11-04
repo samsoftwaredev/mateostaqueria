@@ -1,6 +1,15 @@
 {
   "extends": "expo/tsconfig.base",
-  "compilerOptions": {"strict": true, "jsx": "react-jsx", "esModuleInterop": true, "allowSyntheticDefaultImports": true},
-  "include": ["**/*.ts", "**/*.tsx", "**/*.json"],
+  "compilerOptions": {
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleSuffixes": [".web", ".native", ""],
+    "types": ["node", "vitest/globals"]
+  },
+  "include": ["App.tsx", "index.ts", "scripts/**/*.ts", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist", "preview"]
 }

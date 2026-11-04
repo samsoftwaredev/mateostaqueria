@@ -2,15 +2,24 @@
   "name": "mateos-taqueria-prototype",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "expo start",
     "web": "expo start --web",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "build": "expo export --platform web",
-    "export:web": "expo export --platform web",
-    "check": "tsc --noEmit"
+    "build": "expo export --platform web && vite-node scripts/generate-seo-pages.ts",
+    "build:preview": "tsc --project preview/tsconfig.json",
+    "export:web": "npm run build",
+    "typecheck": "tsc --noEmit && tsc --project preview/tsconfig.json --noEmit",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "validate": "npm run format:check && npm run lint && npm run typecheck && npm run test",
+    "check": "npm run validate"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -27,9 +36,21 @@
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
+    "@eslint/js": "^9.39.5",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.8",
     "@types/react": "~19.1.10",
     "babel-preset-expo": "~54.0.7",
-    "eslint-config-expo": "~10.0.0",
-    "typescript": "~5.9.2"
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^16.5.0",
+    "jsdom": "^26.1.0",
+    "prettier": "^3.9.10",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^3.2.7"
   }
 }

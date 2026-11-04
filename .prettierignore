@@ -1,0 +1,9 @@
+.expo/
+coverage/
+dist/
+node_modules/
+preview/dist/
+assets/
+preview/images/
+public/images/
+package-lock.json

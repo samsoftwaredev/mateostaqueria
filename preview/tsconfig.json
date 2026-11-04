@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["DOM", "ES2022"],
+    "module": "ES2022",
+    "moduleDetection": "legacy",
+    "noEmit": false,
+    "outDir": "dist",
+    "target": "ES2022",
+    "types": []
+  },
+  "include": ["app.ts", "data.ts", "types.d.ts"],
+  "exclude": []
+}

@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Mateo's Taqueria",
+    "description": "Homemade Mexican food, street tacos, and catering from Mateo's Taqueria in Arlington, Texas.",
     "slug": "mateos-taqueria-demo",
     "scheme": "mateostaqueria",
     "version": "1.0.0",
@@ -8,8 +9,20 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "icon": "./assets/icon.png",
-    "web": {"bundler": "metro", "output": "single", "favicon": "./assets/icon.png", "name": "Mateo's Taqueria"},
-    "ios": {"supportsTablet": true},
-    "android": {"adaptiveIcon": {"foregroundImage": "./assets/icon.png", "backgroundColor": "#FCF9F2"}}
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/icon.png",
+      "name": "Mateo's Taqueria",
+      "shortName": "Mateo's",
+      "lang": "en-US",
+      "description": "Homemade Mexican food, street tacos, and catering from Mateo's Taqueria in Arlington, Texas.",
+      "themeColor": "#092C52",
+      "backgroundColor": "#FCF9F2"
+    },
+    "ios": { "supportsTablet": true },
+    "android": {
+      "adaptiveIcon": { "foregroundImage": "./assets/icon.png", "backgroundColor": "#FCF9F2" }
+    }
   }
 }

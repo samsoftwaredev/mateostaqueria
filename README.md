@@ -32,6 +32,16 @@ npm run ios
 
 The MUI implementation is **web-only**, because MUI components require the browser DOM. Native is intentionally implemented with React Native components. Navigation is local React state / SPA browser history; there is no backend or Expo Router dependency.
 
+## Quality checks
+
+The repository uses ESLint's flat configuration, Prettier, strict TypeScript, Vitest, jsdom, and Testing Library. Run the complete local quality gate with:
+
+```bash
+npm run check
+```
+
+Individual commands are also available: `npm run lint`, `npm run format:check`, `npm run typecheck`, `npm test`, and `npm run test:watch`. Use `npm run format` and `npm run lint:fix` to apply formatting and lint fixes.
+
 ## Vercel deployment
 
 Build the production web application:
@@ -40,7 +50,7 @@ Build the production web application:
 npm run build
 ```
 
-Expo exports the single-page web app to `dist/`. The included `vercel.json` configures the build command, `dist/` output directory, and SPA route rewrites.
+Expo exports the web app to `dist/`. The build then creates route-specific HTML entry points with unique titles, descriptions, canonical URLs, social metadata, and WebSite/Restaurant structured data. The included `vercel.json` configures the build command, `dist/` output directory, and clean URLs so those route files are served directly. `public/robots.txt` and `public/sitemap.xml` are copied into the export automatically.
 
 Deploy by importing the project repository in Vercel or running the Vercel CLI:
 
@@ -60,23 +70,23 @@ Alternatively, open **Mateos-Taqueria-Preview.html**, which embeds all images, C
 
 ## Design specification
 
-| Token | Color | Usage |
-|---|---|---|
-| Royal blue | `#0069C9` | CTA buttons, accents, links |
-| Wordmark sky blue | From owner-supplied logo | Brand name |
-| Deep navy | `#092C52` | Headlines, footer, body accents |
-| Warm cream | `#FCF9F2` | Hero, page backgrounds |
-| Sage green | `#778F62` | Freshness, botanical details |
-| Forest green | `#41684E` | Supporting accents |
+| Token             | Color                    | Usage                           |
+| ----------------- | ------------------------ | ------------------------------- |
+| Royal blue        | `#0069C9`                | CTA buttons, accents, links     |
+| Wordmark sky blue | From owner-supplied logo | Brand name                      |
+| Deep navy         | `#092C52`                | Headlines, footer, body accents |
+| Warm cream        | `#FCF9F2`                | Hero, page backgrounds          |
+| Sage green        | `#778F62`                | Freshness, botanical details    |
+| Forest green      | `#41684E`                | Supporting accents              |
 
 - **Wordmark** is derived from the owner-supplied “Mateo’s Taqueria” blue script-and-sans logo, without a mascot.
-- **Type** is *Barlow Condensed* for bold headlines and *DM Sans* for interface text. Google Fonts are optional; system fallbacks are provided.
+- **Type** is _Barlow Condensed_ for bold headlines and _DM Sans_ for interface text. Google Fonts are optional; system fallbacks are provided.
 - **Photography** has been cropped from the supplied AI-generated reference mockups. Replace with licensed restaurant-owned food photographs before production.
 - This UI takes inspiration from the ease-of-ordering patterns of quick-service apps but does not copy any third-party logos or proprietary artwork.
 
 ## Content provenance and release checklist
 
-The live website [mateostaqueria.com](https://mateostaqueria.com/) was checked on **November 3, 2026**. It states that Mateo’s Taqueria is *coming soon to Arlington* and that catering is available. It lists **2425 SE Green Oaks Blvd, Suite 103, Arlington, TX 76018** and a testimonial from **Heidi (May 30, 2026)**. The site did not expose a usable HTML full menu at the pages retrieved.
+The live website [mateostaqueria.com](https://mateostaqueria.com/) was checked on **November 3, 2026**. It states that Mateo’s Taqueria is _coming soon to Arlington_ and that catering is available. It lists **2425 SE Green Oaks Blvd, Suite 103, Arlington, TX 76018** and a testimonial from **Heidi (May 30, 2026)**. The site did not expose a usable HTML full menu at the pages retrieved.
 
 Menu and catering item names and prices in this prototype were entered from the owner-supplied menu images in this design conversation. The catering phone number **(214) 799-7852** comes from the supplied catering artwork, **not** a verified phone listing on the current site. As the provided mockups include AI-generated content, **every menu item, ingredient, photo, price, catering package and phone number must be reviewed by the owner** before production. The design deliberately avoids inventing opening hours, a restaurant opening date, or real rewards balances.
 
@@ -87,14 +97,15 @@ Before public launch:
 3. Connect online ordering, payment, loyalty, and catering booking systems when available (not included in this front-end scope).
 4. Add a privacy policy and other applicable public-facing disclosures; confirm your actual use of analytics, cookies and forms.
 5. Complete mobile, accessibility and responsive testing on real devices.
-6. Re-run `npm install`, `npm run check`, and `npm run build` on a machine with network access before deploying.
+6. Re-run `npm install`, `npm run check`, and `npm run build` before deploying.
 
-## Current testing status
+## SEO implementation
 
-- All TypeScript / TSX source files passed a syntax parse with TypeScript.
-- The dependency-free preview script passed Node.js syntax checks.
-- `node test-preview.cjs` passed basic local component/render and state tests (menu, local cart, catering estimate and image paths).
-- **Not yet verified:** full Expo bundling, npm install, native runtime, or an actual Vercel deployment. The execution environment could not reach the npm registry, and its browser automation was blocked by administrator policy.
+- Route-specific titles, descriptions, canonical URLs, Open Graph, and Twitter Card metadata.
+- Schema.org `WebSite` and `Restaurant` JSON-LD with cuisine, contact, map, menu, and postal address data.
+- Search-engine discovery through `robots.txt` and `sitemap.xml`.
+- Semantic page headings, descriptive image alt text, and crawlable clean route URLs.
+- Route-specific HTML metadata generated during `npm run build`, plus client-side metadata updates during SPA navigation.
 
 ## Project structure
 
