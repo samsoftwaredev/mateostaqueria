@@ -27,6 +27,27 @@ export const theme = createTheme({
     button: { textTransform: 'none', fontWeight: 800 },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        html: {
+          minHeight: '100%',
+          height: 'auto',
+          overflowX: 'hidden',
+        },
+        body: {
+          minHeight: '100%',
+          height: 'auto',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+        },
+        '#root': {
+          display: 'block',
+          width: '100%',
+          minHeight: '100%',
+          height: 'auto',
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: { borderRadius: 99, padding: '11px 22px', boxShadow: 'none', fontWeight: 800 },

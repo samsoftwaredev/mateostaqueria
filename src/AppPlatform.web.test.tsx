@@ -5,6 +5,12 @@ import WebApp from './AppPlatform.web';
 import { SEO_BY_PAGE } from './seo';
 
 describe('web application', () => {
+  it('keeps the document vertically scrollable on desktop', () => {
+    render(<WebApp />);
+
+    expect(getComputedStyle(document.body).overflowY).toBe('auto');
+  });
+
   it('navigates to the menu and filters dishes by search', () => {
     render(<WebApp />);
 

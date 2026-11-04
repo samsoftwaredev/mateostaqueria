@@ -10,14 +10,29 @@
   box-sizing: border-box;
 }
 html {
+  min-height: 100%;
+  height: auto;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
+  min-height: 100%;
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: #fffefa;
 }
+#root {
+  display: block;
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
 .app-shell {
-  overflow: hidden;
+  width: 100%;
+  overflow-x: clip;
+  overflow-y: visible;
   min-height: 100vh;
   color: var(--navy);
 }

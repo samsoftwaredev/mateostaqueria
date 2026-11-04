@@ -27,6 +27,23 @@ describe('restaurant content model', () => {
     expect(imageUrl('street-tacos.jpg')).toBe('/images/street-tacos.jpg');
   });
 
+  it('uses dish-specific web photography for previously mismatched menu items', () => {
+    const expectedPhotos = {
+      'crispy-tacos': 'crispy-tacos-web.jpg',
+      quesadilla: 'quesadilla-web.jpg',
+      burrito: 'burrito-web.jpg',
+      sopes: 'sopes-web.jpg',
+      chimichanga: 'chimichanga-web.jpg',
+      torta: 'torta-web.jpg',
+      'huevos-rancheros': 'huevos-rancheros-web.jpg',
+      'huevos-chorizo': 'huevos-chorizo-web.jpg',
+    } as const;
+
+    for (const [id, photo] of Object.entries(expectedPhotos)) {
+      expect(MENU.find((item) => item.id === id)?.photo).toBe(photo);
+    }
+  });
+
   it('formats prices in US dollars', () => {
     expect(money(13.5)).toBe('$13.50');
   });
